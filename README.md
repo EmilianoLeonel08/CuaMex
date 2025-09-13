@@ -18,7 +18,9 @@ Plataforma web de recomendaciones culinarias para la Ciudad de México. Permite 
 - JWT para autenticación
 - bcrypt para encriptación de contraseñas
 
-## Instalación
+## Vista rápida sin base de datos
+
+Si solo quieres ver la interfaz web sin configurar la base de datos:
 
 Requisitos previos: Node.js y npm (si no tienes npm instalado, descarga Node.js desde https://nodejs.org)
 
@@ -33,7 +35,27 @@ cd CuaMex
 npm install
 ```
 
-3. Configura las variables de entorno:
+3. Ejecuta directamente:
+```bash
+npm run dev
+```
+
+4. Ve a http://localhost:3000
+
+Nota: Sin base de datos puedes navegar por la interfaz, pero no funcionarán:
+- Registro e inicio de sesión
+- Sistema de reseñas y calificaciones
+- Dashboard de usuario
+
+Los restaurantes de ejemplo se mostrarán normalmente.
+
+## Instalación completa
+
+Para usar todas las funcionalidades (autenticación, reseñas, etc.):
+
+1. Clona el repositorio e instala dependencias (pasos 1-2 arriba)
+
+2. Configura las variables de entorno:
 ```bash
 cp .env.local.example .env.local
 ```
@@ -44,30 +66,12 @@ MONGODB_URI=mongodb://localhost:27017/cuamex
 JWT_SECRET=tu-clave-secreta-super-segura-aqui
 ```
 
-4. Ejecuta el servidor de desarrollo:
+3. Ejecuta el servidor de desarrollo:
 ```bash
 npm run dev
 ```
 
-5. Abre http://localhost:3000 en tu navegador
-
-## Vista rápida sin base de datos
-
-Si solo quieres ver la interfaz web sin configurar la base de datos:
-
-1. Clona el repositorio e instala dependencias (pasos 1-2 arriba)
-2. Ejecuta directamente:
-```bash
-npm run dev
-```
-3. Ve a http://localhost:3000
-
-Nota: Sin base de datos puedes navegar por la interfaz, pero no funcionarán:
-- Registro e inicio de sesión
-- Sistema de reseñas y calificaciones
-- Dashboard de usuario
-
-Los restaurantes de ejemplo se mostrarán normalmente.
+4. Abre http://localhost:3000 en tu navegador
 
 ## Scripts disponibles
 
