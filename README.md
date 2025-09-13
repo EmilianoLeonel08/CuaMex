@@ -32,7 +32,7 @@ cd CuaMex
 
 2. Instala las dependencias:
 ```bash
-npm install
+sudo apt install npm
 ```
 
 3. Ejecuta directamente:
