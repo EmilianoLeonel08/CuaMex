@@ -116,11 +116,3 @@ components/     # Componentes reutilizables
 lib/           # Utilidades (DB, autenticación)
 public/        # Archivos estáticos
 ```
-
-## Configuración de MongoDB
-
-Asegúrate de tener MongoDB ejecutándose localmente o usa MongoDB Atlas para una base de datos en la nube.
-
-## Despliegue
-
-El proyecto puede desplegarse en Vercel, Netlify o cualquier plataforma que soporte Next.js.
