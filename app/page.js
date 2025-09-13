@@ -1,24 +1,21 @@
+import SpotsList from '@/components/SpotsList';
+
 export default function Home() {
   const spots = [
-    { name: 'Taquería El Fogón', barrio:'Roma', tipo:'Tacos al pastor', nota:'Salsa de piña buenísima' },
-    { name: 'Pozolería Doña Mari', barrio:'Portales', tipo:'Pozole verde', nota:'Jueves de 2x1' },
-    { name: 'Chilaquilazo', barrio:'Condesa', tipo:'Torta de chilaquil', nota:'Nivel de picor ajustable' },
+    { name: 'Don Chava ', barrio: 'Coapa', tipo: 'Mariscos frescos', nota: 'Salsa de piña buenísima', image: '/images/spots/chava.jpg' },
+    { name: 'Sakura sushi', barrio: 'San Antonio', tipo: 'Gastronomía Japonesa', nota: 'Jueves de 2x1', image: '/images/spots/sakura.jpg' },
+    { name: 'Berry Cafe', barrio: 'Santa Cruz Xohitepec', tipo: 'Cafetería', nota: 'Chapatas y café deliciosos al mejor precio', image: '/images/spots/berry.jpg' },
+    { name: 'OCHO20', barrio: 'Miravalle', tipo: 'Gastronomía Italiana', nota: 'Pet Friendly', image: '/images/spots/ocho.jpg' },
+    { name: 'Café San Pablo', barrio: 'Portales Nte', tipo: 'Cafetería', nota: 'Una clásica torta bien preparada', image: '/images/spots/Pablo.jpg' },
+    { name: 'Mitsu Café', barrio: 'Centro Historico', tipo: 'Cafetería de gatos', nota: 'EL lugar perfecto para los amantes de michis y comida', image: '/images/spots/Mitsu.jpg' },
   ];
 
   return (
     <section>
-      <h1 className="h1">CuaMex — Recomendaciones culinarias de CDMX</h1>
-      <p className="small">Sitio simple de pruebas. Próximamente: más spots y filtros por colonia.</p>
-      <div style={{height: '1rem'}} />
-      <div className="grid">
-        {spots.map((s, i) => (
-          <article key={i} className="card">
-            <h3 style={{margin:'0 0 .4rem'}}>{s.name}</h3>
-            <p className="small">{s.barrio} · {s.tipo}</p>
-            <p style={{marginTop:'.5rem'}}>{s.nota}</p>
-          </article>
-        ))}
-      </div>
+      <h1 className="h1">CuaMex — El arte de amar la comida</h1>
+      <p className="small">El mejor lugar para encontrar la mejor comida.</p>
+      <div style={{ height: '1rem' }} />
+      <SpotsList spots={spots} />
     </section>
   );
 }

@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 
 export const metadata = {
   title: 'CuaMex',
-  description: 'Recomendaciones culinarias en CDMX',
+  description: 'El arte de amar la comida',
 };
 
 export default function RootLayout({ children }) {

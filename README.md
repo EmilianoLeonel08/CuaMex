@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CuaMex
 
-## Getting Started
+Plataforma web de recomendaciones culinarias para la Ciudad de México. Permite a los usuarios explorar restaurantes, escribir reseñas y calificar con estrellas.
 
-First, run the development server:
+## Características
 
+- Autenticación de usuarios con JWT
+- Sistema de reseñas y calificaciones (1-5 estrellas)
+- Panel de administración para gestión de usuarios
+- Interfaz responsiva con diseño moderno
+- Base de datos MongoDB para persistencia
+
+## Tecnologías
+
+- Next.js 15.5.3
+- React 19.1.0
+- MongoDB 6.19.0
+- JWT para autenticación
+- bcrypt para encriptación de contraseñas
+
+## Instalación
+
+1. Clona el repositorio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/EmilianoLeonel08/seg-inf.git
+cd cuamex-web
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instala las dependencias:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Configura las variables de entorno:
+```bash
+cp .env.local.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edita `.env.local` con tus valores:
+```
+MONGODB_URI=mongodb://localhost:27017/cuamex
+JWT_SECRET=tu-clave-secreta-super-segura-aqui
+```
 
-## Learn More
+4. Ejecuta el servidor de desarrollo:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. Abre http://localhost:3000 en tu navegador
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts disponibles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `npm run dev` - Servidor de desarrollo
+- `npm run build` - Construir para producción
+- `npm run start` - Ejecutar en producción
+- `npm run lint` - Verificar código con ESLint
 
-## Deploy on Vercel
+## Estructura del proyecto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/
+  api/          # Rutas API (autenticación, reseñas)
+  dashboard/    # Panel de usuario/admin
+  login/        # Página de inicio de sesión
+  register/     # Página de registro
+components/     # Componentes reutilizables
+lib/           # Utilidades (DB, autenticación)
+public/        # Archivos estáticos
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Configuración de MongoDB
+
+Asegúrate de tener MongoDB ejecutándose localmente o usa MongoDB Atlas para una base de datos en la nube.
+
+## Despliegue
+
+El proyecto puede desplegarse en Vercel, Netlify o cualquier plataforma que soporte Next.js.
+
+Para despliegue en producción:
+1. Configura las variables de entorno en tu plataforma
+2. Asegúrate de que `JWT_SECRET` sea una clave fuerte
+3. Configura `MONGODB_URI` con tu base de datos de producción

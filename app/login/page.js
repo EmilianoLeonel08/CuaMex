@@ -17,10 +17,11 @@ export default function LoginPage() {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ email, password })
     });
+    const data = await res.json().catch(() => ({}));
     if (res.ok) {
+      try { window.dispatchEvent(new CustomEvent('user-login', { detail: { email, role: data?.role ?? 'user' } })); } catch (e) {}
       router.push('/dashboard');
     } else {
-      const data = await res.json().catch(() => ({}));
       setErr(data?.error ?? 'Error al iniciar sesión');
     }
   }
