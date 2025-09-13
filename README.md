@@ -23,7 +23,7 @@ Plataforma web de recomendaciones culinarias para la Ciudad de México. Permite 
 1. Clona el repositorio:
 ```bash
 git clone https://github.com/EmilianoLeonel08/seg-inf.git
-cd cuamex-web
+cd CuaMex
 ```
 
 2. Instala las dependencias:
