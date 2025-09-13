@@ -20,9 +20,11 @@ Plataforma web de recomendaciones culinarias para la Ciudad de México. Permite 
 
 ## Instalación
 
+Requisitos previos: Node.js y npm (si no tienes npm instalado, descarga Node.js desde https://nodejs.org)
+
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/EmilianoLeonel08/seg-inf.git
+git clone https://github.com/EmilianoLeonel08/CuaMex.git
 cd CuaMex
 ```
 
@@ -48,6 +50,24 @@ npm run dev
 ```
 
 5. Abre http://localhost:3000 en tu navegador
+
+## Vista rápida sin base de datos
+
+Si solo quieres ver la interfaz web sin configurar la base de datos:
+
+1. Clona el repositorio e instala dependencias (pasos 1-2 arriba)
+2. Ejecuta directamente:
+```bash
+npm run dev
+```
+3. Ve a http://localhost:3000
+
+Nota: Sin base de datos puedes navegar por la interfaz, pero no funcionarán:
+- Registro e inicio de sesión
+- Sistema de reseñas y calificaciones
+- Dashboard de usuario
+
+Los restaurantes de ejemplo se mostrarán normalmente.
 
 ## Scripts disponibles
 
