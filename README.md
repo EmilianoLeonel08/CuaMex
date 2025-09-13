@@ -124,8 +124,3 @@ Asegúrate de tener MongoDB ejecutándose localmente o usa MongoDB Atlas para un
 ## Despliegue
 
 El proyecto puede desplegarse en Vercel, Netlify o cualquier plataforma que soporte Next.js.
-
-Para despliegue en producción:
-1. Configura las variables de entorno en tu plataforma
-2. Asegúrate de que `JWT_SECRET` sea una clave fuerte
-3. Configura `MONGODB_URI` con tu base de datos de producción
