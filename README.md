@@ -39,7 +39,7 @@ cd CuaMex
 
 2. Instala las dependencias:
 ```bash
-npm install
+sudo apt install npm
 ```
 
 3. Ejecuta directamente:
@@ -103,12 +103,6 @@ npm run dev
 
 4. Abre http://localhost:3000 en tu navegador
 
-## Scripts disponibles
-
-- `npm run dev` - Servidor de desarrollo
-- `npm run build` - Construir para producción
-- `npm run start` - Ejecutar en producción
-- `npm run lint` - Verificar código con ESLint
 
 ## Estructura del proyecto
 
