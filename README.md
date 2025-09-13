@@ -20,7 +20,7 @@ Plataforma web de recomendaciones culinarias para la Ciudad de México. Permite 
 
 ## Requisitos del sistema (Ubuntu)
 
-Abre tu consola eh instala las dependencias del sistema:
+Abre tu consola e instala las dependencias del sistema:
 
 ```bash
 sudo apt update
