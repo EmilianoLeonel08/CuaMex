@@ -27,7 +27,7 @@ sudo apt update
 sudo apt install nodejs npm git curl
 ```
 
-## Vista rápida sin base de datos
+## Vista rápida sin base de datos (Solo Frontend)
 
 Si solo quieres ver la interfaz web sin configurar la base de datos:
 
@@ -37,9 +37,10 @@ git clone https://github.com/EmilianoLeonel08/CuaMex.git
 cd CuaMex
 ```
 
-2. Instala las dependencias:
+2. Ve al directorio del frontend e instala dependencias:
 ```bash
-sudo apt install npm
+cd frontend
+npm install
 ```
 
 3. Ejecuta directamente:
@@ -49,14 +50,14 @@ npm run dev
 
 4. Ve a http://localhost:3000
 
-Nota: Sin base de datos puedes navegar por la interfaz, pero no funcionarán:
+Nota: Sin backend puedes navegar por la interfaz, pero no funcionarán:
 - Registro e inicio de sesión
 - Sistema de reseñas y calificaciones
 - Dashboard de usuario
 
 Los restaurantes de ejemplo se mostrarán normalmente.
 
-## Instalación completa con MongoDB
+## Instalación completa con MongoDB (Frontend + Backend)
 
 Para usar todas las funcionalidades (autenticación, reseñas, etc.):
 
@@ -76,43 +77,94 @@ sudo systemctl start mongod
 sudo systemctl enable mongod
 ```
 
-### 2. Configura la aplicación
+### 2. Configura el Backend
 
-1. Clona el repositorio e instala dependencias (pasos 1-2 de vista rápida)
-
-2. Configura las variables de entorno:
+1. Clona el repositorio:
 ```bash
-cp .env.local.example .env.local
+git clone https://github.com/EmilianoLeonel08/CuaMex.git
+cd CuaMex
 ```
 
-Edita `.env.local` con tus valores:
+2. Ve al directorio del backend e instala dependencias:
 ```bash
+cd backend
+npm install
+```
+
+3. Configura las variables de entorno:
+```bash
+cp .env .env.local
 nano .env.local
 ```
 
-Contenido:
+Contenido de `.env.local`:
 ```
 MONGODB_URI=mongodb://localhost:27017/cuamex
 JWT_SECRET=tu-clave-secreta-super-segura-aqui
+PORT=3001
 ```
 
-3. Ejecuta el servidor de desarrollo:
+4. Ejecuta el backend:
 ```bash
 npm run dev
 ```
 
-4. Abre http://localhost:3000 en tu navegador
+### 3. Configura el Frontend
 
+1. Abre otra terminal y ve al directorio del frontend:
+```bash
+cd ../frontend
+npm install
+```
+
+2. Ejecuta el frontend:
+```bash
+npm run dev
+```
+
+3. Abre http://localhost:3000 en tu navegador
 
 ## Estructura del proyecto
 
 ```
-app/
-  api/          # Rutas API (autenticación, reseñas)
-  dashboard/    # Panel de usuario/admin
-  login/        # Página de inicio de sesión
-  register/     # Página de registro
-components/     # Componentes reutilizables
-lib/           # Utilidades (DB, autenticación)
-public/        # Archivos estáticos
+frontend/
+  app/              # Páginas de Next.js (login, register, dashboard)
+  components/       # Componentes reutilizables
+  public/           # Archivos estáticos
+  package.json      # Dependencias del frontend
+
+backend/
+  routes/           # Rutas API (auth, reviews)
+  lib/              # Utilidades (DB, autenticación)
+  scripts/          # Scripts de base de datos
+  server.js         # Servidor Express
+  package.json      # Dependencias del backend
 ```
+
+## Scripts disponibles
+
+**Frontend:**
+- `npm run dev` - Servidor de desarrollo (puerto 3000)
+- `npm run build` - Construir para producción
+- `npm run start` - Ejecutar en producción
+
+**Backend:**
+- `npm run dev` - Servidor de desarrollo con nodemon (puerto 3001)
+- `npm start` - Ejecutar servidor
+- `npm run check:db` - Verificar conexión a MongoDB
+
+## Configuración de MongoDB
+
+Asegúrate de tener MongoDB ejecutándose localmente o usa MongoDB Atlas para una base de datos en la nube.
+
+## Despliegue
+
+**Frontend:** Puede desplegarse en Vercel, Netlify o cualquier plataforma que soporte Next.js.
+
+**Backend:** Puede desplegarse en Railway, Render, DigitalOcean o cualquier plataforma que soporte Node.js.
+
+Para despliegue en producción:
+1. Configura las variables de entorno en cada plataforma
+2. Asegúrate de que `JWT_SECRET` sea una clave fuerte
+3. Configura `MONGODB_URI` con tu base de datos de producción
+4. Actualiza la URL del backend en el frontend (`NEXT_PUBLIC_API_URL`)
